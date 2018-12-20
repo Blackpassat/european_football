@@ -1,0 +1,11 @@
+###########################
+#   Database connection   #
+##########################
+
+mysql:
+  host: localhost
+  port: 3306
+  user: raymond
+  passwd: 1.8Turbo
+  db: european_football
+  local_infile: True
