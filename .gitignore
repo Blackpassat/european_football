@@ -92,3 +92,6 @@ venv.bak/
 .mypy_cache/
 
 .DS_Store
+
+static/sql/scripts/csv/
+static/sql/scripts/output/
