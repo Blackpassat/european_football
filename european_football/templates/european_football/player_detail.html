@@ -1,0 +1,203 @@
+{% extends 'european_football/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+        <h2>{{ player.player_name }}</h2>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+        <table class="table table-striped table-hover">
+    		<thead>
+    			<tr>
+    				<th>Birthday</th>
+    				<th>Height</th>
+    				<th>Weight</th>
+    				<th>Overall Rating</th>
+    				<th>Potential</th>
+    				<th>Preferred Foot</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td>{{ player.birthday }}</td>
+    				<td>{{ player.height }}</td>
+    				<td>{{ player.weight }}</td>
+    				<td>{{ player.object.overall_rating }}</td>
+    				<td>{{ player.object.potential }}</td>
+    				<td>{{ player.object.preferred_foot }}</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-1">
+    </div>
+    <div class="col-sm-4">
+        <h4>Player Attributes</h4>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Attacking</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% if player.object.crossing %}
+            <td width="60%">Crossing</td>
+            <td width="5%">{{player.object.crossing | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.crossing | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.finishing %}
+            <td width="60%">Finishing</td>
+            <td width="5%">{{player.object.finishing | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.finishing | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.heading_accuracy %}
+            <td width="60%">Heading Accuracy</td>
+            <td width="5%">{{player.object.heading_accuracy | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.heading_accuracy | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.short_passing %}
+            <td width="60%">Short Passing</td>
+            <td width="5%">{{player.object.short_passing | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.short_passing | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.volleys %}
+            <td width="60%">Volleys</td>
+            <td width="5%">{{player.object.volleys | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.volleys | safe}}></meter></td>
+            {% endif %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-5">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Defending</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% if player.object.marking %}
+            <td width="60%">Marking</td>
+            <td width="5%">{{player.object.marking | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.marking | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.standing_tackle %}
+            <td width="60%">Standing Tackle</td>
+            <td width="5%">{{player.object.standing_tackle | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.standing_tackle | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.sliding_tackle %}
+            <td width="60%">Sliding Tackle</td>
+            <td width="5%">{{player.object.sliding_tackle | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.sliding_tackle | safe}}></meter></td>
+            {% endif %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Goal Keeping</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% if player.object.diving %}
+            <td width="60%">Diving</td>
+            <td width="5%">{{player.object.diving | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.diving | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.handling %}
+            <td width="60%">Handling</td>
+            <td width="5%">{{player.object.handling | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.handling | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.kicking %}
+            <td width="60%">Kicking</td>
+            <td width="5%">{{player.object.kicking | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.kicking | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.positioning %}
+            <td width="60%">Positioning</td>
+            <td width="5%">{{player.object.positioning | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.positioning | safe}}></meter></td>
+            {% endif %}
+          </tr>
+          <tr>
+            {% if player.object.reflexes %}
+            <td width="60%">Reflexes</td>
+            <td width="5%">{{player.object.reflexes | safe}}</td>
+            <td><meter min="0" low="40" high="80" max="100" value={{player.object.reflexes | safe}}></meter></td>
+            {% endif %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-5">
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+
+{% else %}
+    <a href="{% url 'login' %}">Log in</a>
+{% endif %}
+
+{% endblock content %}}
