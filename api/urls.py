@@ -24,7 +24,7 @@ schema_view = get_schema_view(
 '''
 
 router = SimpleRouter()
-router.register(r'sites', SiteViewSet, base_name='sites')
+router.register(r'teams', SiteViewSet, base_name='teams')
 # urlpatterns = router.urls
 
 # The API URLs are now determined automatically by the router.
